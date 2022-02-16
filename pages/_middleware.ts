@@ -19,7 +19,7 @@ export function middleware(req: NextRequest, ev: NextFetchEvent) {
   if (!excludededPrefixes.find(prefix => urlPath.startsWith(prefix))) {
     const destination = getPersonalizedRewrite(urlPath, {
       ...Cookies.get(),
-      'builder.userAttributes.domain': req.headers.get('host'),
+      'builder.userAttributes.domain': req.headers.get('host') || '',
       'builder.userAttributes.city': req.geo?.city || '',
     });
 
