@@ -17,8 +17,9 @@ export async function getStaticProps({
   params,
 }: GetStaticPropsContext<{ page: string[] }>) {
   const urlPath =  '/' + (params?.page?.join('/') || '');
-  const isPersonalized = isPersonalizedPath(urlPath);
-  const targeting = isPersonalized ? getTargetingValues(params?.page || []) : { urlPath }
+  // const isPersonalized = isPersonalizedPath(urlPath);
+  const targeting = getTargetingValues(params?.page || [])
+
   const page =
     (await builder
       .get('page', {

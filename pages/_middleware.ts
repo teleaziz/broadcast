@@ -24,6 +24,7 @@ export function middleware(req: NextRequest, ev: NextFetchEvent) {
     });
 
     if (destination) {
+      console.log('here desitination is ', destination);
       response = NextResponse.rewrite(destination)
     }
   }
